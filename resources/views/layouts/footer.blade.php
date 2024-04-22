@@ -1,13 +1,8 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted">
                 <div class="float-start">
-                    <p>{{ date('Y') }} &copy; Generator by
-                        <a href="https://github.com/Evdigi-INA" target="_blank">Evdigi-INA</a>
-                    </p>
-                </div>
-                <div class="float-end">
-                    <p>Mazer Template by
-                        <a href="https://github.com/zuramai/mazer" target="_blank">A. Saugi</a>
+                    <p>{{ date('Y') }} &copy; Created by
+                        <a href="https://evdigi.id/" target="_blank">Evdigi-ID</a>
                     </p>
                 </div>
             </div>
