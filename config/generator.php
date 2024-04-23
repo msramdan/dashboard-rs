@@ -110,26 +110,34 @@ return [
      */
     'sidebars' => [
         [
-            'header' => 'Main',
+            'header' => 'Administrases',
             'permissions' => [
-                'test view'
+                'administrasi view'
             ],
             'menus' => [
                 [
-                    'title' => 'Main Data',
-                    'icon' => '<i class="bi bi-collection-fill"></i>',
-                    'route' => null,
-                    'permission' => null,
-                    'permissions' => [
-                        'test view'
-                    ],
-                    'submenus' => [
-                        [
-                            'title' => 'Tests',
-                            'route' => '/tests',
-                            'permission' => 'test view'
-                        ]
-                    ]
+                    'title' => 'Administrasi',
+                    'icon' => '<i class="bi bi-currency-dollar"></i>',
+                    'route' => '/administrasi',
+                    'permission' => 'administrasi view',
+                    'permissions' => [],
+                    'submenus' => []
+                ]
+            ]
+        ],
+        [
+            'header' => 'Administrases',
+            'permissions' => [
+                'administrasi view'
+            ],
+            'menus' => [
+                [
+                    'title' => 'Rawat Inap',
+                    'icon' => '<i class="bi bi-list"></i>',
+                    'route' => '/administrasi',
+                    'permission' => 'administrasi view',
+                    'permissions' => [],
+                    'submenus' => []
                 ]
             ]
         ],
@@ -155,8 +163,8 @@ return [
                     'permission' => 'role & permission view',
                     'permissions' => [],
                     'submenus' => []
-                ],
+                ]
             ]
-        ],
-    ],
+        ]
+    ]
 ];

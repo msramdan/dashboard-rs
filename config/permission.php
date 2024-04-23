@@ -187,5 +187,5 @@ return [
                 'test view',
             ]
         ],
-    ],
-];
+  ['group' => 'administrasi', 'access' => ['administrasi view', 'administrasi create', 'administrasi edit', 'administrasi delete']],
+		],];
