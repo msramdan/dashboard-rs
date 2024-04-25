@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
-@section('title', __('Administrasis'))
+@section('title', __('Radiologi'))
 
 @section('content')
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-8 order-md-1 order-last">
-                    <h3>{{ __('Administrasis') }}</h3>
+                    <h3>{{ __('Radiologi') }}</h3>
                     <p class="text-subtitle text-muted">
-                        {{ __('Below is a list of all administrasis.') }}
+                        {{ __('Below is a list of all Radiologi.') }}
                     </p>
                 </div>
                 <x-breadcrumb>
                     <li class="breadcrumb-item"><a href="/">{{ __('Dashboard') }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ __('Administrasis') }}</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ __('Radiologi') }}</li>
                 </x-breadcrumb>
             </div>
         </div>
@@ -22,11 +22,11 @@
         <section class="section">
             <x-alert></x-alert>
 
-                @can('administrasi create')
+                @can('radiologi create')
                 <div class="d-flex justify-content-end">
-                    <a href="{{ route('administrasis.create') }}" class="btn btn-primary mb-3">
+                    <a href="{{ route('radiologis.create') }}" class="btn btn-primary mb-3">
                         <i class="fas fa-plus"></i>
-                        {{ __('Create a new administrasi') }}
+                        {{ __('Create a new radiologi') }}
                     </a>
                 </div>
                 @endcan
@@ -39,7 +39,7 @@
                                 <table class="table table-striped" id="data-table" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>{{ __('Nama') }}</th>
+                                            <th>{{ __('Name') }}</th>
                                             <th>{{ __('Created At') }}</th>
                                             <th>{{ __('Updated At') }}</th>
                                             <th>{{ __('Action') }}</th>

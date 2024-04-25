@@ -109,62 +109,180 @@ return [
      * This code below always changes when you use a generator and maybe you must lint or format the code.
      */
     'sidebars' => [
-        [
-            'header' => 'Administrases',
-            'permissions' => [
-                'administrasi view'
-            ],
-            'menus' => [
-                [
-                    'title' => 'Administrasi',
-                    'icon' => '<i class="bi bi-currency-dollar"></i>',
-                    'route' => '/administrasi',
-                    'permission' => 'administrasi view',
-                    'permissions' => [],
-                    'submenus' => []
-                ]
-            ]
+    [
+        'header' => 'Administrases',
+        'permissions' => [
+            'administrasi view'
         ],
-        [
-            'header' => 'Administrases',
-            'permissions' => [
-                'administrasi view'
-            ],
-            'menus' => [
-                [
-                    'title' => 'Rawat Inap',
-                    'icon' => '<i class="bi bi-list"></i>',
-                    'route' => '/administrasi',
-                    'permission' => 'administrasi view',
-                    'permissions' => [],
-                    'submenus' => []
-                ]
+        'menus' => [
+            [
+                'title' => 'Administrasi',
+                'icon' => '<i class="bi bi-list"></i>',
+                'route' => '/administrasi',
+                'permission' => 'administrasi view',
+                'permissions' => [],
+                'submenus' => []
             ]
+        ]
+    ],
+    [
+        'header' => 'Rawat Inaps',
+        'permissions' => [
+            'rawat inap view'
         ],
-        [
-            'header' => 'Users',
-            'permissions' => [
-                'user view',
-                'role & permission view'
+        'menus' => [
+            [
+                'title' => 'Rawat Inap',
+                'icon' => '<i class="bi bi-list"></i>',
+                'route' => '/rawat-inaps',
+                'permission' => 'rawat inap view',
+                'permissions' => [],
+                'submenus' => []
+            ]
+        ]
             ],
-            'menus' => [
-                [
-                    'title' => 'Users',
-                    'icon' => '<i class="bi bi-people-fill"></i>',
-                    'route' => '/users',
-                    'permission' => 'user view',
-                    'permissions' => [],
-                    'submenus' => []
+    [
+        'header' => 'Bkias',
+        'permissions' => [
+            'bkia view'
+        ],
+        'menus' => [
+            [
+                'title' => 'BKIA',
+                'icon' => '<i class="bi bi-list"></i>',
+                'route' => '/bkias',
+                'permission' => 'bkia view',
+                'permissions' => [],
+                'submenus' => []
+            ]
+        ]
+    ],
+    [
+        'header' => 'Ugds',
+        'permissions' => [
+            'ugd view'
+        ],
+        'menus' => [
+            [
+                'title' => 'UGD',
+                'icon' => '<i class="bi bi-list"></i>',
+                'route' => '/ugds',
+                'permission' => 'ugd view',
+                'permissions' => [],
+                'submenus' => []
+            ]
+        ]
+    ],
+    [
+        'header' => 'Poli Umums',
+        'permissions' => [
+            'poli umum view'
+        ],
+        'menus' => [
+            [
+                'title' => 'Poli Umum',
+                'icon' => '<i class="bi bi-list"></i>',
+                'route' => '/poli-umums',
+                'permission' => 'poli umum view',
+                'permissions' => [],
+                'submenus' => []
+            ]
+        ]
+    ],
+    [
+        'header' => 'Pendaftarans',
+        'permissions' => [
+            'pendaftaran view'
+        ],
+        'menus' => [
+            [
+                'title' => 'Pendaftaran',
+                'icon' => '<i class="bi bi-list"></i>',
+                'route' => '/pendaftarans',
+                'permission' => 'pendaftaran view',
+                'permissions' => [],
+                'submenus' => []
+            ]
+        ]
+    ],
+    [
+        'header' => 'Rekam Medis',
+        'permissions' => [
+            'rekam medi view'
+        ],
+        'menus' => [
+            [
+                'title' => 'Rekam Medis',
+                'icon' => '<i class="bi bi-list"></i>',
+                'route' => '/rekam-medis',
+                'permission' => 'rekam medi view',
+                'permissions' => [],
+                'submenus' => []
+            ]
+        ]
+    ],
+    [
+        'header' => 'Laboratoriums',
+        'permissions' => [
+            'laboratorium view'
+        ],
+        'menus' => [
+            [
+                'title' => 'Laboratorium',
+                'icon' => '<i class="bi bi-list"></i>',
+                'route' => '/laboratoriums',
+                'permission' => 'laboratorium view',
+                'permissions' => [],
+                'submenus' => []
+            ]
+        ]
+    ],
+    [
+        'header' => 'Radiologis',
+        'permissions' => [
+            'radiologi view'
+        ],
+        'menus' => [
+            [
+                'title' => 'Radiologi',
+                'icon' => '<i class="bi bi-list"></i>',
+                'route' => '/radiologis',
+                'permission' => 'radiologi view',
+                'permissions' => [],
+                'submenus' => []
+            ]
+        ]
+    ],
+    [
+        'header' => 'Utilities',
+        'permissions' => [
+            'user view',
+            'role & permission view'
+        ],
+        'menus' => [
+            [
+                'title' => 'Users & Roles',
+                'icon' => '<i class="bi bi-people"></i>',
+                'route' => null,
+                'permission' => null,
+                'permissions' => [
+                    'user view',
+                    'role & permission view'
                 ],
-                [
-                    'title' => 'Roles & permissions',
-                    'icon' => '<i class="bi bi-person-check-fill"></i>',
-                    'route' => '/roles',
-                    'permission' => 'role & permission view',
-                    'permissions' => [],
-                    'submenus' => []
+                'submenus' => [
+                    [
+                        'title' => 'Users',
+                        'route' => '/users',
+                        'permission' => 'user view'
+                    ],
+                    [
+                        'title' => 'Roles & permissions',
+                        'route' => '/roles',
+                        'permission' => 'role & permission view'
+                    ]
                 ]
             ]
         ]
     ]
+]
 ];

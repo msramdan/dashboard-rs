@@ -32,3 +32,11 @@ Route::middleware(['auth', 'permission:test view'])->get('/tests', function () {
 })->name('tests.index');
 
 Route::resource('administrasis', App\Http\Controllers\AdministrasiController::class)->middleware('auth');
+Route::resource('bkias', App\Http\Controllers\BkiaController::class)->middleware('auth');
+Route::resource('ugds', App\Http\Controllers\UgdController::class)->middleware('auth');
+Route::resource('poli-umums', App\Http\Controllers\PoliUmumController::class)->middleware('auth');
+Route::resource('pendaftarans', App\Http\Controllers\PendaftaranController::class)->middleware('auth');
+Route::resource('rekam-medis', App\Http\Controllers\RekamMediController::class)->middleware('auth');
+Route::resource('laboratoriums', App\Http\Controllers\LaboratoriumController::class)->middleware('auth');
+Route::resource('radiologis', App\Http\Controllers\RadiologiController::class)->middleware('auth');
+Route::resource('rawat-inaps', App\Http\Controllers\RawatInapController::class)->middleware('auth');

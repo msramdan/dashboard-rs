@@ -181,11 +181,14 @@ return [
                 'role & permission delete',
             ]
         ],
-        [
-            'group' => 'tests',
-            'access' => [
-                'test view',
-            ]
-        ],
-  ['group' => 'administrasi', 'access' => ['administrasi view', 'administrasi create', 'administrasi edit', 'administrasi delete']],
-		],];
+        ['group' => 'administrasi', 'access' => ['administrasi view']],
+        ['group' => 'bkias', 'access' => ['bkia view']],
+        ['group' => 'ugds', 'access' => ['ugd view']],
+        ['group' => 'poli umums', 'access' => ['poli umum view']],
+        ['group' => 'pendaftarans', 'access' => ['pendaftaran view']],
+        ['group' => 'rekam medis', 'access' => ['rekam medi view']],
+        ['group' => 'laboratoriums', 'access' => ['laboratorium view']],
+        ['group' => 'radiologis', 'access' => ['radiologi view']],
+        ['group' => 'rawat inaps', 'access' => ['rawat inap view']],
+    ],
+];
