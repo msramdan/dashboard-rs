@@ -56,68 +56,6 @@
                         <span> {{ __('Laporan Excel') }}</span>
                     </a>
                 </li>
-
-                {{-- @foreach (config('generator.sidebars') as $sidebar)
-                    @if (isset($sidebar['permissions']))
-                        @canany($sidebar['permissions'])
-                            @foreach ($sidebar['menus'] as $menu)
-                                @php
-                                    $permissions = empty($menu['permission']) ? $menu['permissions'] : [$menu['permission']];
-                                @endphp
-
-                                @canany($permissions)
-                                    @if (empty($menu['submenus']))
-                                        @can($menu['permission'])
-                                            <li class="sidebar-item{{ is_active_menu($menu['route']) }}">
-                                                <a href="{{ route(str($menu['route'])->remove('/')->plural() . '.index') }}" class="sidebar-link">
-                                                    {!! $menu['icon'] !!}
-                                                    <span>{{ __($menu['title']) }}</span>
-                                                </a>
-                                            </li>
-                                        @endcan
-                                    @else
-                                        <li class="sidebar-item has-sub{{ is_active_menu($menu['permissions']) }}">
-                                            <a href="#" class="sidebar-link">
-                                                {!! $menu['icon'] !!}
-                                                <span>{{ __($menu['title']) }}</span>
-                                            </a>
-                                            <ul class="submenu">
-                                                @canany($menu['permissions'])
-                                                    @foreach ($menu['submenus'] as $submenu)
-                                                        @can($submenu['permission'])
-                                                            <li class="submenu-item{{  is_active_menu($submenu['route']) }}">
-                                                                <a href="{{ route(str($submenu['route'])->remove('/')->plural() . '.index') }}">
-                                                                    {{ __($submenu['title']) }}
-                                                                </a>
-                                                            </li>
-                                                        @endcan
-                                                    @endforeach
-                                                @endcanany
-                                            </ul>
-                                        </li>
-                                    @endif
-                                @endcanany
-                            @endforeach
-                        @endcanany
-                    @endif
-                @endforeach
-                <li class="sidebar-item{{ request()->is('profile') ? ' active' : '' }}">
-                    <a class="sidebar-link" href="{{ route('profile') }}">
-                        <i class="bi bi-person-badge-fill"></i>
-                        <span> {{ __('Profile') }}</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                        <i class="bi bi-door-open-fill"></i>
-                        <span> {{ __('Logout') }}</span>
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </li> --}}
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
