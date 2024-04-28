@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Facades\DataTables;
+
 class LaporanController extends Controller
 {
     public function index()
@@ -9,10 +13,33 @@ class LaporanController extends Controller
         return view('laporan.index');
     }
 
-    public function kunjungan_pasien_per_diagnosa()
+    public function kunjungan_pasien_per_diagnosa(Request $request)
     {
-        return view('laporan.kunjungan_pasien_per_diagnosa');
+        if (request()->ajax()) {
+            $data = DB::table('tbl_regist')
+                ->select(
+                    'tbl_regist.noreg'
+                );
+
+            $data = $data->orderBy('tbl_regist.noreg', 'DESC')->get();
+            return Datatables::of($data)
+                ->toJson();
+        }
+
+        $from = date('Y-m-d') . " 00:00:00";
+        $to = date('Y-m-d') . " 23:59:59";
+        $microFrom = strtotime($from) * 1000;
+        $microTo = strtotime($to) * 1000;
+
+        $start_date = $request->query('start_date') !== null ? intval($request->query('start_date')) : $microFrom;
+        $end_date = $request->query('end_date') !== null ? intval($request->query('end_date')) : $microTo;
+        return view('laporan.kunjungan_pasien_per_diagnosa', [
+            'microFrom' => $start_date,
+            'microTo' => $end_date,
+        ]);
     }
+
+
 
     public function kunjungan_pasien()
     {

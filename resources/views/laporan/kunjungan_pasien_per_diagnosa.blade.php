@@ -24,7 +24,44 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h1>kunjungan_pasien_per_diagnosa</h1>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="input-group mb-4">
+                                        <span class="input-group-text" id="addon-wrapping"><i
+                                                class="fa fa-calendar"></i></span>
+                                        <input type="text" class="form-control" aria-describedby="addon-wrapping"
+                                            id="daterange-btn" value="">
+                                        <input type="hidden" name="start_date" id="start_date"
+                                            value="{{ $microFrom ?? '' }}">
+                                        <input type="hidden" name="end_date" id="end_date" value="{{ $microTo ?? '' }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <button id="btnExport" class="btn btn-success  mb-3">
+                                        <i class='fas fa-file-excel'></i>
+                                        {{ __('Export') }}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-sm" id="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            {{-- <th>No reg</th>
+                                            <th>Rekmed</th>
+                                            <th>Tgl kunjungan</th>
+                                            <th>Nama pasien</th>
+                                            <th>Jenis kelamin</th>
+                                            <th>Umur</th>
+                                            <th>Poliklinik</th>
+                                            <th>Payment</th>
+                                            <th>Kode dignosa</th>
+                                            <th>Diagnosa</th> --}}
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
 
                         </div>
                     </div>
@@ -39,4 +76,75 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.0/datatables.min.css" />
+    <link href="{{ asset('mazer/css/daterangepicker.min.css') }}" rel="stylesheet" />
+@endpush
+
+@push('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.0/datatables.min.js"></script>
+    <script type="text/javascript" src="{{ asset('mazer/js/moment.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('mazer/js/daterangepicker.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
+
+    <script>
+        let columns = [{
+                data: 'noreg',
+                name: 'noreg'
+            }
+        ];
+
+        var table = $('#data-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: "{{ route('kunjungan_pasien_per_diagnosa') }}",
+                data: function(s) {
+                    s.start_date = $("#start_date").val();
+                    s.end_date = $("#end_date").val();
+                }
+            },
+            columns: columns
+        });
+
+        $('#daterange-btn').change(function() {
+            table.draw();
+        })
+    </script>
+
+
+    <script>
+        var start = {{ $microFrom }}
+        var end = {{ $microTo }}
+        var label = '';
+        $('#daterange-btn').daterangepicker({
+                locale: {
+                    format: 'DD MMM YYYY'
+                },
+                startDate: moment(start),
+                endDate: moment(end),
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf(
+                        'month')],
+                }
+            },
+            function(start, end, label) {
+                $('#start_date').val(Date.parse(start));
+                $('#end_date').val(Date.parse(end));
+                if (isDate(start)) {
+                    $('#daterange-btn span').html(start.format('DD MMM YYYY') + ' - ' + end.format('DD MMM YYYY'));
+                }
+            });
+
+        function isDate(val) {
+            var d = Date.parse(val);
+            return Date.parse(val);
+        }
+    </script>
 @endpush
