@@ -50,7 +50,14 @@
                     </a>
                 </li>
 
-                @foreach (config('generator.sidebars') as $sidebar)
+                <li class="sidebar-item{{ request()->is('laporan') ? ' active' : '' }}">
+                    <a class="sidebar-link" href="/laporan">
+                        <i class="bi bi-file-earmark-excel"></i>
+                        <span> {{ __('Laporan Excel') }}</span>
+                    </a>
+                </li>
+
+                {{-- @foreach (config('generator.sidebars') as $sidebar)
                     @if (isset($sidebar['permissions']))
                         @canany($sidebar['permissions'])
                             @foreach ($sidebar['menus'] as $menu)
@@ -94,14 +101,12 @@
                         @endcanany
                     @endif
                 @endforeach
-
                 <li class="sidebar-item{{ request()->is('profile') ? ' active' : '' }}">
                     <a class="sidebar-link" href="{{ route('profile') }}">
                         <i class="bi bi-person-badge-fill"></i>
                         <span> {{ __('Profile') }}</span>
                     </a>
                 </li>
-
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('logout') }}"
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -112,7 +117,7 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-                </li>
+                </li> --}}
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
