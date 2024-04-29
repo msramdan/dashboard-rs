@@ -44,11 +44,11 @@
                                 </div>
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-bordered table-sm" id="data-table">
+                                <table class="table table-bordered" id="data-table" style="font-size: 12px">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            {{-- <th>No reg</th>
+                                            <th>No reg</th>
                                             <th>Rekmed</th>
                                             <th>Tgl kunjungan</th>
                                             <th>Nama pasien</th>
@@ -57,7 +57,6 @@
                                             <th>Poliklinik</th>
                                             <th>Payment</th>
                                             <th>Kode dignosa</th>
-                                            <th>Diagnosa</th> --}}
                                         </tr>
                                     </thead>
                                 </table>
@@ -89,11 +88,51 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
 
     <script>
+
         let columns = [{
+                data: 'DT_RowIndex',
+                name: 'DT_RowIndex',
+                orderable: false,
+                searchable: false
+            },
+            {
                 data: 'noreg',
                 name: 'noreg'
+            },
+            {
+                data: 'rekmed',
+                name: 'rekmed'
+            },
+            {
+                data: 'tglmasuk',
+                name: 'tglmasuk'
+            },
+            {
+                data: 'namapas',
+                name: 'namapas'
+            },
+            {
+                data: 'jkel',
+                name: 'jkel'
+            },
+            {
+                data: 'umur',
+                name: 'umur'
+            },
+            {
+                data: 'namapost',
+                name: 'namapost'
+            },
+            {
+                data: 'jenispas',
+                name: 'jenispas'
+            },
+            {
+                data: 'icdcode',
+                name: 'icdcode'
             }
         ];
+
 
         var table = $('#data-table').DataTable({
             processing: true,
@@ -108,8 +147,20 @@
             columns: columns
         });
 
+
+        function replaceURLParams() {
+            var params = new URLSearchParams();
+            var startDate = $("#start_date").val();
+            var endDate = $("#end_date").val();
+            if (startDate) params.set('start_date', startDate);
+            if (endDate) params.set('end_date', endDate);
+            var newURL = "{{ route('kunjungan_pasien_per_diagnosa') }}" + '?' + params.toString();
+            history.replaceState(null, null, newURL);
+        }
+
         $('#daterange-btn').change(function() {
             table.draw();
+            replaceURLParams()
         })
     </script>
 

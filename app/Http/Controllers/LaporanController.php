@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
+use DateTime;
 
 class LaporanController extends Controller
 {
@@ -16,13 +17,73 @@ class LaporanController extends Controller
     public function kunjungan_pasien_per_diagnosa(Request $request)
     {
         if (request()->ajax()) {
+            $start_date = $request->query('start_date');
+            $end_date = $request->query('end_date');
+
             $data = DB::table('tbl_regist')
+                ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+                ->join('tbl_namapos', 'tbl_regist.kodepos', '=', 'tbl_namapos.kodepos')
+                ->leftJoin('tbl_penjamin', 'tbl_regist.cust_id', '=', 'tbl_penjamin.cust_id')
                 ->select(
-                    'tbl_regist.noreg'
+                    'tbl_regist.noreg',
+                    'tbl_regist.rekmed',
+                    'tbl_regist.tglmasuk',
+                    'tbl_regist.jenispas',
+                    'tbl_pasien.namapas',
+                    'tbl_pasien.jkel',
+                    'tbl_pasien.tgllahir',
+                    'tbl_namapos.namapost',
+                    'tbl_penjamin.cust_nama'
                 );
+
+            if (isset($end_date) && !empty($end_date)) {
+                $to = date("Y-m-d H:i:s", substr($request->query('end_date'), 0, 10));
+                $data = $data->where('tbl_regist.tglmasuk', '<=', $to);
+            } else {
+                $to = date('Y-m-d') . " 23:59:59";
+                $data = $data->where('tbl_regist.tglmasuk', '<=', $to);
+            }
+
+            if (isset($start_date) && !empty($start_date) && isset($end_date) && !empty($end_date)) {
+                $from = date("Y-m-d H:i:s", substr($request->query('start_date'), 0, 10));
+                $to = date("Y-m-d H:i:s", substr($request->query('end_date'), 0, 10));
+                $data = $data->whereBetween('tbl_regist.tglmasuk', [$from, $to]);
+            } else {
+                $from = date('Y-m-d') . " 00:00:00";
+                $to = date('Y-m-d') . " 23:59:59";
+                $data = $data->whereBetween('tbl_regist.tglmasuk', [$from, $to]);
+            }
 
             $data = $data->orderBy('tbl_regist.noreg', 'DESC')->get();
             return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('jkel', function ($row) {
+                    return $row->jkel == 1 || $row->jkel == '1'  ? 'Pria' : 'Wanita';
+                })
+                ->addColumn('jenispas', function ($row) {
+                    return $row->jenispas == 'PAS1'  ? 'Umum' :  $row->cust_nama;
+                })
+                ->addColumn('umur', function ($row) {
+                    $tanggal_lahir = new DateTime($row->tgllahir);
+                    $tanggal_sekarang = new DateTime(date('Y-m-d'));
+                    $selisih = $tanggal_lahir->diff($tanggal_sekarang);
+                    $umur_tahun = $selisih->y;
+                    $umur_bulan = $selisih->m;
+                    return $umur_tahun . " Th " . $umur_bulan . " Bln";
+                })
+                ->addColumn('icdcode', function ($row) {
+                    $icdCodes = DB::table('tbl_icdtr')
+                        ->where('noreg', $row->noreg)
+                        ->pluck('icdcode');
+
+                    $html = '';
+                    foreach ($icdCodes as $icdCode) {
+                        $html .= '<span class="badge bg-primary badge-sm">' . $icdCode . '</span>&nbsp;';
+                    }
+
+                    return $html;
+                })
+                ->rawColumns(['icdcode', 'str'])
                 ->toJson();
         }
 
