@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::controller(App\Http\Controllers\DashboardController::class)->group(function () {
     Route::get('/', function () {
         return redirect()->route('dashboard');
@@ -31,6 +32,8 @@ Route::controller(App\Http\Controllers\LaporanController::class)->group(function
 
     // Excel
     Route::get('/export-kunjungan-pasien-per-diagnosa/{start_date}/{end_date}', 'exportKunjunganPasienPerDiagnosa')->name('exportKunjunganPasienPerDiagnosa');
+    Route::get('/export-data_rujukan_pasien/{start_date}/{end_date}', 'exportDataRujukanPasien')->name('exportdataRujukanPpasien');
+    Route::get('/export-data_surat_sakit/{start_date}/{end_date}', 'exportDataSuratSakit')->name('exportDataSuratSakit');
 });
 
 

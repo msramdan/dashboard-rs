@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportDataRujukanPasien;
+use App\Exports\ExportDataSuratSakit;
+use App\Exports\ExportDataSuratSehat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
@@ -109,20 +112,184 @@ class LaporanController extends Controller
         return view('laporan.kunjungan_pasien');
     }
 
-    public function data_rujukan_pasien()
+
+    public function data_rujukan_pasien(Request $request)
     {
-        return view('laporan.data_rujukan_pasien');
+        if (request()->ajax()) {
+            $start_date = $request->query('start_date');
+            $end_date = $request->query('end_date');
+
+            $data = DB::table('bpjs_pcare_rujukan');
+
+
+            if (isset($end_date) && !empty($end_date)) {
+                $to = date("Y-m-d H:i:s", substr($request->query('end_date'), 0, 10));
+                $data = $data->where('bpjs_pcare_rujukan.tglKunjungan', '<=', $to);
+            } else {
+                $to = date('Y-m-d') . " 23:59:59";
+                $data = $data->where('bpjs_pcare_rujukan.tglKunjungan', '<=', $to);
+            }
+
+            if (isset($start_date) && !empty($start_date) && isset($end_date) && !empty($end_date)) {
+                $from = date("Y-m-d H:i:s", substr($request->query('start_date'), 0, 10));
+                $to = date("Y-m-d H:i:s", substr($request->query('end_date'), 0, 10));
+                $data = $data->whereBetween('bpjs_pcare_rujukan.tglKunjungan', [$from, $to]);
+            } else {
+                $from = date('Y-m-d') . " 00:00:00";
+                $to = date('Y-m-d') . " 23:59:59";
+                $data = $data->whereBetween('bpjs_pcare_rujukan.tglKunjungan', [$from, $to]);
+            }
+
+            $data = $data->orderBy('bpjs_pcare_rujukan.kodeRs', 'DESC')->get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('gender', function ($row) {
+                    return $row->sex == 1 || $row->sex == '1'  ? 'Pria' : 'Wanita';
+                })
+                ->toJson();
+        }
+
+        $from = date('Y-m-d') . " 00:00:00";
+        $to = date('Y-m-d') . " 23:59:59";
+        $microFrom = strtotime($from) * 1000;
+        $microTo = strtotime($to) * 1000;
+
+        $start_date = $request->query('start_date') !== null ? intval($request->query('start_date')) : $microFrom;
+        $end_date = $request->query('end_date') !== null ? intval($request->query('end_date')) : $microTo;
+        return view('laporan.data_rujukan_pasien', [
+            'microFrom' => $start_date,
+            'microTo' => $end_date,
+        ]);
     }
 
-    public function data_surat_sakit()
+    public function data_surat_sakit(Request $request)
     {
-        return view('laporan.data_surat_sakit');
+        if (request()->ajax()) {
+            $start_date = $request->query('start_date');
+            $end_date = $request->query('end_date');
+
+            $data = DB::table('tbl_regist')
+                ->where('tbl_rekammedisrs.ijinsakit', 1)
+                ->join('tbl_rekammedisrs', 'tbl_regist.rekmed', '=', 'tbl_rekammedisrs.rekmed')
+                ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+                ->join('tbl_dokter', 'tbl_regist.kodokter', '=', 'tbl_dokter.kodokter')
+                ->select([
+                    'tbl_regist.noreg',
+                    'tbl_rekammedisrs.rekmed',
+                    'tbl_rekammedisrs.suhu',
+                    'tbl_rekammedisrs.keluhanawal',
+                    'tbl_rekammedisrs.tglperiksa',
+                    'tbl_rekammedisrs.pfisik',
+                    'tbl_rekammedisrs.surat1',
+                    'tbl_rekammedisrs.diags',
+                    'tbl_pasien.namapas',
+                    'tbl_dokter.nadokter',
+                ]);
+
+
+            if (isset($end_date) && !empty($end_date)) {
+                $to = date("Y-m-d H:i:s", substr($request->query('end_date'), 0, 10));
+                $data = $data->where('tbl_rekammedisrs.tglperiksa', '<=', $to);
+            } else {
+                $to = date('Y-m-d') . " 23:59:59";
+                $data = $data->where('tbl_rekammedisrs.tglperiksa', '<=', $to);
+            }
+
+            if (isset($start_date) && !empty($start_date) && isset($end_date) && !empty($end_date)) {
+                $from = date("Y-m-d H:i:s", substr($request->query('start_date'), 0, 10));
+                $to = date("Y-m-d H:i:s", substr($request->query('end_date'), 0, 10));
+                $data = $data->whereBetween('tbl_rekammedisrs.tglperiksa', [$from, $to]);
+            } else {
+                $from = date('Y-m-d') . " 00:00:00";
+                $to = date('Y-m-d') . " 23:59:59";
+                $data = $data->whereBetween('tbl_rekammedisrs.tglperiksa', [$from, $to]);
+            }
+
+            $data = $data->orderBy('tbl_rekammedisrs.tglperiksa', 'DESC')->get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->toJson();
+        }
+
+        $from = date('Y-m-d') . " 00:00:00";
+        $to = date('Y-m-d') . " 23:59:59";
+        $microFrom = strtotime($from) * 1000;
+        $microTo = strtotime($to) * 1000;
+
+        $start_date = $request->query('start_date') !== null ? intval($request->query('start_date')) : $microFrom;
+        $end_date = $request->query('end_date') !== null ? intval($request->query('end_date')) : $microTo;
+        return view('laporan.data_surat_sakit', [
+            'microFrom' => $start_date,
+            'microTo' => $end_date,
+        ]);
     }
 
-    public function data_surat_sehat()
+    public function data_surat_sehat(Request $request)
     {
-        return view('laporan.data_surat_sehat');
+        if (request()->ajax()) {
+            $start_date = $request->query('start_date');
+            $end_date = $request->query('end_date');
+
+            $data = DB::table('tbl_regist')
+                ->where('tbl_rekammedisrs.sehat', 1)
+                ->join('tbl_rekammedisrs', 'tbl_regist.rekmed', '=', 'tbl_rekammedisrs.rekmed')
+                ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+                ->join('tbl_dokter', 'tbl_regist.kodokter', '=', 'tbl_dokter.kodokter')
+                ->select([
+                    'tbl_regist.noreg',
+                    'tbl_rekammedisrs.rekmed',
+                    'tbl_rekammedisrs.suhu',
+                    'tbl_rekammedisrs.keluhanawal',
+                    'tbl_rekammedisrs.tglperiksa',
+                    'tbl_rekammedisrs.pfisik',
+                    'tbl_rekammedisrs.surat1',
+                    'tbl_rekammedisrs.diags',
+                    'tbl_pasien.namapas',
+                    'tbl_dokter.nadokter',
+
+                ]);
+
+
+            if (isset($end_date) && !empty($end_date)) {
+                $to = date("Y-m-d H:i:s", substr($request->query('end_date'), 0, 10));
+                $data = $data->where('tbl_rekammedisrs.tglperiksa', '<=', $to);
+            } else {
+                $to = date('Y-m-d') . " 23:59:59";
+                $data = $data->where('tbl_rekammedisrs.tglperiksa', '<=', $to);
+            }
+
+            if (isset($start_date) && !empty($start_date) && isset($end_date) && !empty($end_date)) {
+                $from = date("Y-m-d H:i:s", substr($request->query('start_date'), 0, 10));
+                $to = date("Y-m-d H:i:s", substr($request->query('end_date'), 0, 10));
+                $data = $data->whereBetween('tbl_rekammedisrs.tglperiksa', [$from, $to]);
+            } else {
+                $from = date('Y-m-d') . " 00:00:00";
+                $to = date('Y-m-d') . " 23:59:59";
+                $data = $data->whereBetween('tbl_rekammedisrs.tglperiksa', [$from, $to]);
+            }
+
+            $data = $data->orderBy('tbl_rekammedisrs.tglperiksa', 'DESC')->get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->toJson();
+        }
+
+        $from = date('Y-m-d') . " 00:00:00";
+        $to = date('Y-m-d') . " 23:59:59";
+        $microFrom = strtotime($from) * 1000;
+        $microTo = strtotime($to) * 1000;
+
+        $start_date = $request->query('start_date') !== null ? intval($request->query('start_date')) : $microFrom;
+        $end_date = $request->query('end_date') !== null ? intval($request->query('end_date')) : $microTo;
+        return view('laporan.data_surat_sehat', [
+            'microFrom' => $start_date,
+            'microTo' => $end_date,
+        ]);
     }
+    // public function data_surat_sehat()
+    // {
+    //     return view('laporan.data_surat_sehat');
+    // }
 
     public function pasien_kunjungan_sakit_dan_kunjungan_sehat()
     {
@@ -139,5 +306,23 @@ class LaporanController extends Controller
         $date = date('d-m-Y');
         $nameFile = 'Laporan kunjungan pasien per diagnosa ' . $date;
         return Excel::download(new ExportKunjunganPasienPerDiagnosa($start_date, $end_date), $nameFile . '.xlsx');
+    }
+    public function exportDataRujukanPasien($start_date, $end_date)
+    {
+        $date = date('d-m-Y');
+        $nameFile = 'Laporan Data Rujukan Pasien ' . $date;
+        return Excel::download(new ExportDataRujukanPasien($start_date, $end_date), $nameFile . '.xlsx');
+    }
+    public function exportDataSuratSakit($start_date, $end_date)
+    {
+        $date = date('d-m-Y');
+        $nameFile = 'Laporan Data Surat Sakit ' . $date;
+        return Excel::download(new ExportDataSuratSakit($start_date, $end_date), $nameFile . '.xlsx');
+    }
+    public function exportDataSuratSehat($start_date, $end_date)
+    {
+        $date = date('d-m-Y');
+        $nameFile = 'Laporan Data Surat Sehat ' . $date;
+        return Excel::download(new ExportDataSuratSehat($start_date, $end_date), $nameFile . '.xlsx');
     }
 }
