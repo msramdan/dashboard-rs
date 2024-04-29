@@ -88,7 +88,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
 
     <script>
-
         let columns = [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex',
@@ -164,7 +163,6 @@
         })
     </script>
 
-
     <script>
         var start = {{ $microFrom }}
         var end = {{ $microTo }}
@@ -196,6 +194,62 @@
         function isDate(val) {
             var d = Date.parse(val);
             return Date.parse(val);
+        }
+    </script>
+
+    <script>
+        $(document).on('click', '#btnExport', function(event) {
+            event.preventDefault();
+            exportData();
+
+        });
+
+        var exportData = function() {
+            var start_date = $("#start_date").val();
+            var end_date = $("#end_date").val();
+            var url = '/export-kunjungan-pasien-per-diagnosa/' + start_date + '/' + end_date;
+            $.ajax({
+                url: url,
+                type: 'GET',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                },
+                data: {
+                    start_date: start_date,
+                    end_date: end_date,
+                },
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                beforeSend: function() {
+                    Swal.fire({
+                        title: 'Please Wait !',
+                        html: 'Sedang melakukan proses export data', // add html attribute if you want or remove
+                        allowOutsideClick: false,
+                        onBeforeOpen: () => {
+                            Swal.showLoading()
+                        },
+                    });
+                },
+                success: function(data) {
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(data);
+                    var nameFile = 'Laporan kunjungan pasien per diagnosa.xlsx'
+                    console.log(nameFile)
+                    link.download = nameFile;
+                    link.click();
+                    swal.close()
+                },
+                error: function(data) {
+                    console.log(data)
+                    Swal.fire({
+                        icon: 'error',
+                        title: "Data export failed",
+                        text: "Please check",
+                        allowOutsideClick: false,
+                    })
+                }
+            });
         }
     </script>
 @endpush

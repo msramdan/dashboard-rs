@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
+use App\Exports\ExportKunjunganPasienPerDiagnosa;
+use Maatwebsite\Excel\Facades\Excel;
 use DateTime;
 
 class LaporanController extends Controller
@@ -130,5 +132,12 @@ class LaporanController extends Controller
     public function laporan_summary_mcu()
     {
         return view('laporan.laporan_summary_mcu');
+    }
+
+    public function exportKunjunganPasienPerDiagnosa($start_date, $end_date)
+    {
+        $date = date('d-m-Y');
+        $nameFile = 'Laporan kunjungan pasien per diagnosa ' . $date;
+        return Excel::download(new ExportKunjunganPasienPerDiagnosa($start_date, $end_date), $nameFile . '.xlsx');
     }
 }

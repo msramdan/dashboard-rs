@@ -28,6 +28,9 @@ Route::controller(App\Http\Controllers\LaporanController::class)->group(function
     Route::get('/data_surat_sehat', 'data_surat_sehat')->name('data_surat_sehat');
     Route::get('/pasien_kunjungan_sakit_dan_kunjungan_sehat', 'pasien_kunjungan_sakit_dan_kunjungan_sehat')->name('pasien_kunjungan_sakit_dan_kunjungan_sehat');
     Route::get('/laporan_summary_mcu', 'laporan_summary_mcu')->name('laporan_summary_mcu');
+
+    // Excel
+    Route::get('/export-kunjungan-pasien-per-diagnosa/{start_date}/{end_date}', 'exportKunjunganPasienPerDiagnosa')->name('exportKunjunganPasienPerDiagnosa');
 });
 
 
