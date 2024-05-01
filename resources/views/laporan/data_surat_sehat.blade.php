@@ -162,7 +162,7 @@
             var endDate = $("#end_date").val();
             if (startDate) params.set('start_date', startDate);
             if (endDate) params.set('end_date', endDate);
-            var newURL = "{{ route('data_surat_sakit') }}" + '?' + params.toString();
+            var newURL = "{{ route('data_surat_sehat') }}" + '?' + params.toString();
             history.replaceState(null, null, newURL);
         }
 
