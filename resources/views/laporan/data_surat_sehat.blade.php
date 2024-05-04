@@ -56,7 +56,7 @@
                                             <th>Keluhan</th>
                                             {{-- <th>Pemeriksaan</th> --}}
                                             <th>Diagnosa</th>
-                                            <th>No Suarat</th>
+                                            <th>No Surat</th>
                                             <th>Dokter</th>
                                             
                                            
@@ -126,8 +126,8 @@
             //     name: 'tbl_rekammedisrs.pfisik'
             // },
             {
-                data: 'diags',
-                name: 'tbl_rekammedisrs.diags'
+                data: 'diagnosa',
+                name: 'tbl_rekammedisrs.diagnosa'
             },
             {
                 data: 'surat1',
@@ -162,7 +162,7 @@
             var endDate = $("#end_date").val();
             if (startDate) params.set('start_date', startDate);
             if (endDate) params.set('end_date', endDate);
-            var newURL = "{{ route('data_surat_sakit') }}" + '?' + params.toString();
+            var newURL = "{{ route('data_surat_sehat') }}" + '?' + params.toString();
             history.replaceState(null, null, newURL);
         }
 

@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Auth;
 
 
-class ExportKunjunganPasienPerDiagnosa implements FromView, ShouldAutoSize, WithEvents
+class ExportDataSummaryMcu implements FromView, ShouldAutoSize, WithEvents
 {
     function __construct($start_date, $end_date)
     {
@@ -23,26 +23,28 @@ class ExportKunjunganPasienPerDiagnosa implements FromView, ShouldAutoSize, With
     public function view(): View
     {
 
-        $start_date = $this->start_date;
-        $end_date = $this->end_date;
-
         $data = DB::table('tbl_regist')
+            ->join('tbl_rekammedisrs', 'tbl_regist.rekmed', '=', 'tbl_rekammedisrs.rekmed')
             ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
-            ->join('tbl_namapos', 'tbl_regist.kodepos', '=', 'tbl_namapos.kodepos')
-            ->leftJoin('tbl_penjamin', 'tbl_regist.cust_id', '=', 'tbl_penjamin.cust_id')
-            ->select(
+            ->join('tbl_dokter', 'tbl_regist.kodokter', '=', 'tbl_dokter.kodokter')
+            ->join('mcu_fisikh', 'tbl_regist.rekmed', '=', 'mcu_fisikh.rekmed')
+            ->select([
                 'tbl_regist.noreg',
-                'tbl_regist.rekmed',
+                'tbl_rekammedisrs.rekmed',
+                'tbl_rekammedisrs.suhu',
+                'tbl_rekammedisrs.keluhanawal',
                 'tbl_regist.tglmasuk',
-                'tbl_regist.jenispas',
+                'tbl_rekammedisrs.pfisik',
+                'tbl_rekammedisrs.surat1',
+                'tbl_rekammedisrs.diags',
                 'tbl_pasien.namapas',
-                'tbl_pasien.jkel',
-                'tbl_pasien.tgllahir',
-                'tbl_namapos.namapost',
-                'tbl_penjamin.cust_nama'
-            );
+                'tbl_dokter.nadokter',
+                'mcu_fisikh.*',
 
-        if (isset($end_date) && !empty($end_date)) {
+            ]);
+
+
+        if (isset($this->end_date) && !empty($this->end_date)) {
             $to = date("Y-m-d H:i:s", substr($this->end_date, 0, 10));
             $data = $data->where('tbl_regist.tglmasuk', '<=', $to);
         } else {
@@ -50,7 +52,7 @@ class ExportKunjunganPasienPerDiagnosa implements FromView, ShouldAutoSize, With
             $data = $data->where('tbl_regist.tglmasuk', '<=', $to);
         }
 
-        if (isset($start_date) && !empty($start_date) && isset($end_date) && !empty($end_date)) {
+        if (isset($this->start_date) && !empty($this->start_date) && isset($this->end_date) && !empty($this->end_date)) {
             $from = date("Y-m-d H:i:s", substr($this->start_date, 0, 10));
             $to = date("Y-m-d H:i:s", substr($this->end_date, 0, 10));
             $data = $data->whereBetween('tbl_regist.tglmasuk', [$from, $to]);
@@ -59,9 +61,8 @@ class ExportKunjunganPasienPerDiagnosa implements FromView, ShouldAutoSize, With
             $to = date('Y-m-d') . " 23:59:59";
             $data = $data->whereBetween('tbl_regist.tglmasuk', [$from, $to]);
         }
-
-        $data = $data->orderBy('tbl_regist.noreg', 'DESC')->get();
-        return view('laporan.kunjungan_pasien_per_diagnosa_excel', [
+        $data = $data->orderBy('tbl_regist.tglmasuk', 'DESC')->get();
+        return view('laporan.data_summary_mcu_excel', [
             'data' => $data
         ]);
     }

@@ -61,7 +61,7 @@ class ExportDataSuratSehat implements FromView, ShouldAutoSize, WithEvents
             $data = $data->whereBetween('tbl_rekammedisrs.tglperiksa', [$from, $to]);
         }
         $data = $data->orderBy('tbl_rekammedisrs.tglperiksa', 'DESC')->get();
-        return view('laporan.data_surat_sakit_excel', [
+        return view('laporan.data_surat_sehat_excel', [
             'data' => $data
         ]);
     }

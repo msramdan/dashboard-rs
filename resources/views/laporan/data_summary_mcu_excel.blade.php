@@ -3,7 +3,7 @@
         <tr>
             <th style="background-color:#D3D3D3 ">No reg</th>
             <th style="background-color:#D3D3D3 ">No rekmed</th>
-            <th style="background-color:#D3D3D3 ">No Tanggal Kujungan</th>
+            <th style="background-color:#D3D3D3 ">No Tanggal Masuk</th>
             <th style="background-color:#D3D3D3 ">Nama Pasien</th>
             <th style="background-color:#D3D3D3 ">Suhu</th>
             <th style="background-color:#D3D3D3 ">Keluhan</th>
@@ -17,11 +17,11 @@
             <tr>
                 <td> {{ $row->noreg }} </td>
                 <td> {{ $row->rekmed }} </td>
-                <td>{{ $row->tglperiksa }}</td>
+                <td>{{ $row->tglmasuk }}</td>
                 <td>{{ $row->namapas }}</td>
                 <td>{{ $row->suhu }}</td>
                 <td>{{ $row->keluhanawal }}</td>
-                <td>{{ $row->diagnosa }}</td>
+                <td>{{ $row->diags }}</td>
                 <td>{{ $row->surat1 }}</td>
                 <td>{{ $row->nadokter }}</td>
             </tr>
