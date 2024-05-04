@@ -24,7 +24,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="input-group mb-4">
                                         <span class="input-group-text" id="addon-wrapping"><i
                                                 class="fa fa-calendar"></i></span>
@@ -36,7 +36,240 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="table-responsive">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat jalan by Poliklinik
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat inap by Kelas
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat jalan by Dokter
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart3"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat inap by Dokter
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart4"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat jalan by Cara Bayar
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart5"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat inap by Cara Bayar
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart6"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat jalan by Jenis Kelamin
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart7"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat inap by Jenis Kelamin
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart8"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat jalan by Kelompok Umur
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart9"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat inap by Kelompok Umur
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart10"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat jalan by Agama
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart11"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat inap by Agama
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart12"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat jalan by Pekerjaan
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart13"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat inap by Pekerjaan
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart14"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat jalan by Desa
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart15"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-sm-6">
+                    <div class="card">
+                        <div class="card-header align-items-center d-flex">
+                            <h4 class="card-title mb-0 flex-grow-1">
+                                Kunjungan rawat inap by Desa
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 100%;height: 500px">
+                                <canvas id="myChart16"></canvas>
                             </div>
                         </div>
                     </div>
@@ -62,7 +295,7 @@
     <script type="text/javascript" src="{{ asset('mazer/js/moment.js') }}"></script>
     <script type="text/javascript" src="{{ asset('mazer/js/daterangepicker.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
         var start = {{ $microFrom }}
@@ -96,5 +329,644 @@
             var d = Date.parse(val);
             return Date.parse(val);
         }
+    </script>
+    <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx2 = document.getElementById("myChart2").getContext('2d');
+        var myChart = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx3 = document.getElementById("myChart3").getContext('2d');
+        var myChart = new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx4 = document.getElementById("myChart4").getContext('2d');
+        var myChart = new Chart(ctx4, {
+            type: 'bar',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx5 = document.getElementById("myChart5").getContext('2d');
+        var myChart = new Chart(ctx5, {
+            type: 'bar',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx6 = document.getElementById("myChart6").getContext('2d');
+        var myChart = new Chart(ctx6, {
+            type: 'bar',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx7 = document.getElementById("myChart7").getContext('2d');
+        var myChart = new Chart(ctx7, {
+            type: 'pie',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx8 = document.getElementById("myChart8").getContext('2d');
+        var myChart = new Chart(ctx8, {
+            type: 'pie',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx9 = document.getElementById("myChart9").getContext('2d');
+        var myChart = new Chart(ctx9, {
+            type: 'pie',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx10 = document.getElementById("myChart10").getContext('2d');
+        var myChart = new Chart(ctx10, {
+            type: 'pie',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx11 = document.getElementById("myChart11").getContext('2d');
+        var myChart = new Chart(ctx11, {
+            type: 'pie',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx12 = document.getElementById("myChart12").getContext('2d');
+        var myChart = new Chart(ctx12, {
+            type: 'pie',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    {{-- 13 --}}
+    <script>
+        var ctx13 = document.getElementById("myChart13").getContext('2d');
+        var myChart = new Chart(ctx13, {
+            type: 'pie',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    {{-- 14 --}}
+    <script>
+        var ctx14 = document.getElementById("myChart14").getContext('2d');
+        var myChart = new Chart(ctx14, {
+            type: 'pie',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    {{-- 15 --}}
+    <script>
+        var ctx15 = document.getElementById("myChart15").getContext('2d');
+        var myChart = new Chart(ctx15, {
+            type: 'pie',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    {{-- 16 --}}
+    <script>
+        var ctx16 = document.getElementById("myChart16").getContext('2d');
+        var myChart = new Chart(ctx16, {
+            type: 'pie',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 23, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
     </script>
 @endpush
