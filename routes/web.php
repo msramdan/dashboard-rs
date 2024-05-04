@@ -18,6 +18,8 @@ Route::controller(App\Http\Controllers\DashboardController::class)->group(functi
         return redirect()->route('dashboard');
     });
     Route::get('/dashboard', 'index')->name('dashboard');
+    Route::get('/dashboard_kunjungan_pasien', 'dashboard_kunjungan_pasien')->name('dashboard_kunjungan_pasien');
+    Route::get('/dashboard_penyakit', 'dashboard_penyakit')->name('dashboard_penyakit');
 });
 
 Route::controller(App\Http\Controllers\LaporanController::class)->group(function () {
