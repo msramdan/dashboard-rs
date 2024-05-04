@@ -126,8 +126,8 @@
             //     name: 'tbl_rekammedisrs.pfisik'
             // },
             {
-                data: 'diags',
-                name: 'tbl_rekammedisrs.diags'
+                data: 'diagnosa',
+                name: 'tbl_rekammedisrs.diagnosa'
             },
             {
                 data: 'surat1',

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ExportDataRujukanPasien;
+use App\Exports\ExportDataSummaryMcu;
 use App\Exports\ExportDataSuratSakit;
 use App\Exports\ExportDataSuratSehat;
+use App\Exports\ExportKunjunganPasien;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
@@ -110,7 +112,7 @@ class LaporanController extends Controller
         if (request()->ajax()) {
             $start_date = $request->query('start_date');
             $end_date = $request->query('end_date');
-
+            // dd($start_date . ' ' . $end_date);
             $data = DB::table('tbl_regist')
                 ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
                 ->join('tbl_namapos', 'tbl_regist.kodepos', '=', 'tbl_namapos.kodepos')
@@ -397,7 +399,7 @@ class LaporanController extends Controller
                     'tbl_regist.tglmasuk',
                     'tbl_rekammedisrs.pfisik',
                     'tbl_rekammedisrs.surat1',
-                    'tbl_rekammedisrs.diags',
+                    'tbl_rekammedisrs.diagnosa',
                     'tbl_pasien.namapas',
                     'tbl_dokter.nadokter',
                     'mcu_fisikh.*',
@@ -475,12 +477,12 @@ class LaporanController extends Controller
     {
         $date = date('d-m-Y');
         $nameFile = 'Laporan Data Summary Mcu ' . $date;
-        return Excel::download(new ExportDataSuratSehat($start_date, $end_date), $nameFile . '.xlsx');
+        return Excel::download(new ExportDataSummaryMcu($start_date, $end_date), $nameFile . '.xlsx');
     }
     public function exportKunjunganPasien($start_date, $end_date)
     {
         $date = date('d-m-Y');
         $nameFile = 'Laporan Data Kunjungan Pasien ' . $date;
-        return Excel::download(new ExportDataSuratSehat($start_date, $end_date), $nameFile . '.xlsx');
+        return Excel::download(new ExportKunjunganPasien($start_date, $end_date), $nameFile . '.xlsx');
     }
 }

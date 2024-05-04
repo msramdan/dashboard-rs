@@ -22,7 +22,8 @@ class ExportKunjunganPasien implements FromView, ShouldAutoSize, WithEvents
 
     public function view(): View
     {
-
+        $start_date = $this->start_date;
+        $end_date = $this->end_date;
         $data = DB::table('tbl_regist')
             ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
             ->join('tbl_namapos', 'tbl_regist.kodepos', '=', 'tbl_namapos.kodepos')
@@ -37,10 +38,11 @@ class ExportKunjunganPasien implements FromView, ShouldAutoSize, WithEvents
                 'tbl_pasien.jkel',
                 'tbl_pasien.tgllahir',
                 'tbl_namapos.namapost',
-                'tbl_penjamin.cust_nama'
+                'tbl_penjamin.cust_nama',
+                'tbl_dokter.nadokter'
             );
 
-        if (isset($this->end_date) && !empty($this->end_date)) {
+        if (isset($end_date) && !empty($end_date)) {
             $to = date("Y-m-d H:i:s", substr($this->end_date, 0, 10));
             $data = $data->where('tbl_regist.tglmasuk', '<=', $to);
         } else {
@@ -48,7 +50,7 @@ class ExportKunjunganPasien implements FromView, ShouldAutoSize, WithEvents
             $data = $data->where('tbl_regist.tglmasuk', '<=', $to);
         }
 
-        if (isset($this->start_date) && !empty($this->start_date) && isset($this->end_date) && !empty($this->end_date)) {
+        if (isset($start_date) && !empty($start_date) && isset($end_date) && !empty($end_date)) {
             $from = date("Y-m-d H:i:s", substr($this->start_date, 0, 10));
             $to = date("Y-m-d H:i:s", substr($this->end_date, 0, 10));
             $data = $data->whereBetween('tbl_regist.tglmasuk', [$from, $to]);
@@ -57,6 +59,7 @@ class ExportKunjunganPasien implements FromView, ShouldAutoSize, WithEvents
             $to = date('Y-m-d') . " 23:59:59";
             $data = $data->whereBetween('tbl_regist.tglmasuk', [$from, $to]);
         }
+
         $data = $data->orderBy('tbl_regist.noreg', 'DESC')->get();
         return view('laporan.kunjungan_pasien_excel', [
             'data' => $data

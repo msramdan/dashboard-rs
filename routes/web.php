@@ -35,11 +35,11 @@ Route::controller(App\Http\Controllers\LaporanController::class)->group(function
 
     // Excel
     Route::get('/export-kunjungan-pasien-per-diagnosa/{start_date}/{end_date}', 'exportKunjunganPasienPerDiagnosa')->name('exportKunjunganPasienPerDiagnosa');
+    Route::get('/export-kunjungan-pasien/{start_date}/{end_date}', 'exportKunjunganPasien')->name('exportKunjunganPasien');
     Route::get('/export-data_rujukan_pasien/{start_date}/{end_date}', 'exportDataRujukanPasien')->name('exportdataRujukanPpasien');
     Route::get('/export-data_surat_sakit/{start_date}/{end_date}', 'exportDataSuratSakit')->name('exportDataSuratSakit');
     Route::get('/export-data_surat_sehat/{start_date}/{end_date}', 'exportDataSuratSehat')->name('exportDataSuratSehat');
     Route::get('/export-data_summary_mcu/{start_date}/{end_date}', 'exportDataSummaryMcu')->name('exportDataSummaryMcu');
-    Route::get('/export-kunjungan-pasien/{start_date}/{end_date}', 'exportKunjunganPasien')->name('exportKunjunganPasien');
 });
 
 

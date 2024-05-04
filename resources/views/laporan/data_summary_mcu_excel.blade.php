@@ -21,7 +21,7 @@
                 <td>{{ $row->namapas }}</td>
                 <td>{{ $row->suhu }}</td>
                 <td>{{ $row->keluhanawal }}</td>
-                <td>{{ $row->diags }}</td>
+                <td>{{ $row->diagnosa }}</td>
                 <td>{{ $row->surat1 }}</td>
                 <td>{{ $row->nadokter }}</td>
             </tr>
