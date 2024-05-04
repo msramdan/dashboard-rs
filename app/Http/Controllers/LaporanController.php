@@ -105,12 +105,6 @@ class LaporanController extends Controller
         ]);
     }
 
-
-
-    // public function kunjungan_pasien()
-    // {
-    //     return view('laporan.kunjungan_pasien');
-    // }
     public function kunjungan_pasien(Request $request)
     {
         if (request()->ajax()) {
@@ -131,7 +125,8 @@ class LaporanController extends Controller
                     'tbl_pasien.jkel',
                     'tbl_pasien.tgllahir',
                     'tbl_namapos.namapost',
-                    'tbl_penjamin.cust_nama'
+                    'tbl_penjamin.cust_nama',
+                    'tbl_dokter.nadokter'
                 );
 
             if (isset($end_date) && !empty($end_date)) {

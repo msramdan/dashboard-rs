@@ -48,7 +48,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>No reg</th>
+                                            <th>Kode RS</th>
                                             <th>No rujukan</th>
                                             <th>Tgl kunjungan</th>
                                             <th>Kode Ppk</th>
@@ -66,7 +66,7 @@
                                             <th>Nama Tacc</th>
                                             <th>Jadwal</th>
                                             <th>Dokter</th>
-                                           
+
                                         </tr>
                                     </thead>
                                 </table>
@@ -176,7 +176,7 @@
                 data: 'nmDokter',
                 name: 'nmDokter'
             },
-            
+
         ];
 
 

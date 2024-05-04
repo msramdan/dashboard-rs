@@ -56,6 +56,7 @@
                                             <th>Umur</th>
                                             <th>Poliklinik</th>
                                             <th>Payment</th>
+                                            <th>Dokter</th>
                                             <th>Kode dignosa</th>
                                         </tr>
                                     </thead>
@@ -125,6 +126,10 @@
             {
                 data: 'jenispas',
                 name: 'jenispas'
+            },
+            {
+                data: 'nadokter',
+                name: 'nadokter'
             },
             {
                 data: 'icdcode',
