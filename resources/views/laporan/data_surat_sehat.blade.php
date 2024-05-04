@@ -25,7 +25,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="input-group mb-4">
                                         <span class="input-group-text" id="addon-wrapping"><i
                                                 class="fa fa-calendar"></i></span>
@@ -58,8 +58,8 @@
                                             <th>Diagnosa</th>
                                             <th>No Surat</th>
                                             <th>Dokter</th>
-                                            
-                                           
+
+
                                         </tr>
                                     </thead>
                                 </table>
@@ -137,8 +137,8 @@
                 data: 'nadokter',
                 name: 'tbl_dokter.nadokter'
             },
-            
-            
+
+
         ];
 
 
