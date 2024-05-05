@@ -21,6 +21,16 @@ Route::controller(App\Http\Controllers\DashboardController::class)->group(functi
     Route::get('/dashboard_kunjungan_pasien', 'dashboard_kunjungan_pasien')->name('dashboard_kunjungan_pasien');
     Route::get('/grafik_rawat_jalan_by_poliklinik', 'grafik_rawat_jalan_by_poliklinik')->name('grafik_rawat_jalan_by_poliklinik');
     Route::get('/grafik_rawat_inap_by_kelas', 'grafik_rawat_inap_by_kelas')->name('grafik_rawat_inap_by_kelas');
+    Route::get('/grafik_rawat_jalan_by_dokter', 'grafik_rawat_jalan_by_dokter')->name('grafik_rawat_jalan_by_dokter');
+    Route::get('/grafik_rawat_inap_by_dokter', 'grafik_rawat_inap_by_dokter')->name('grafik_rawat_inap_by_dokter');
+    // 7
+    Route::get('/grafik_rawat_jalan_by_jenis_kelamin', 'grafik_rawat_jalan_by_jenis_kelamin')->name('grafik_rawat_jalan_by_jenis_kelamin');
+    // 8
+    Route::get('/grafik_rawat_inap_by_jenis_kelamin', 'grafik_rawat_inap_by_jenis_kelamin')->name('grafik_rawat_inap_by_jenis_kelamin');
+    // 11
+    Route::get('/grafik_rawat_jalan_by_agama', 'grafik_rawat_jalan_by_agama')->name('grafik_rawat_jalan_by_agama');
+    // 12
+    Route::get('/grafik_rawat_inap_by_agama', 'grafik_rawat_inap_by_agama')->name('grafik_rawat_inap_by_agama');
     Route::get('/dashboard_penyakit', 'dashboard_penyakit')->name('dashboard_penyakit');
 });
 

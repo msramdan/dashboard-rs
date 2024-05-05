@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-
+                {{-- 1 --}}
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -54,11 +54,13 @@
                         </div>
                         <div class="card-body">
                             <div style="height: 300px; overflow-y: auto;">
-                                <table class="table mt-4 table-striped table-bordered" style="line-height: 0px; font-size:10px">
+                                <table class="table mt-4 table-striped table-bordered"
+                                    style="line-height: 0px; font-size:10px">
                                     <thead>
                                         <tr>
                                             <th scope="col">Nama Pos</th>
                                             <th scope="col">Jumlah</th>
+                                            <th scope="col">%</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tableBody">
@@ -69,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-
+                {{-- 2 --}}
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -84,11 +86,13 @@
                         </div>
                         <div class="card-body">
                             <div style="height: 300px; overflow-y: auto;">
-                                <table class="table mt-4 table-striped table-bordered" style="line-height: 0px; font-size:10px">
+                                <table class="table mt-4 table-striped table-bordered"
+                                    style="line-height: 0px; font-size:10px">
                                     <thead>
                                         <tr>
                                             <th scope="col">Nama Kelas</th>
                                             <th scope="col">Jumlah</th>
+                                            <th scope="col">%</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tableBody2">
@@ -99,8 +103,7 @@
                         </div>
                     </div>
                 </div>
-
-
+                {{-- 3 --}}
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -108,13 +111,30 @@
                                 Kunjungan rawat jalan by Dokter
                             </h4>
                         </div>
-                        <div class="card-body">
-                            <div style="width: 100%;height: 500px">
+                        <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                            <div style="height: 300px; ">
                                 <canvas id="myChart3"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px; overflow-y: auto;">
+                                <table class="table mt-4 table-striped table-bordered"
+                                    style="line-height: 0px; font-size:10px">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Dokter</th>
+                                            <th scope="col">Jumlah</th>
+                                            <th scope="col">%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody3">
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+                {{-- 4 --}}
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -122,14 +142,29 @@
                                 Kunjungan rawat inap by Dokter
                             </h4>
                         </div>
-                        <div class="card-body">
-                            <div style="width: 100%;height: 500px">
+                        <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                            <div style="height: 300px; ">
                                 <canvas id="myChart4"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px; overflow-y: auto;">
+                                <table class="table mt-4 table-striped table-bordered"
+                                    style="line-height: 0px; font-size:10px">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Dokter</th>
+                                            <th scope="col">Jumlah</th>
+                                            <th scope="col">%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody4">
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -160,6 +195,7 @@
                     </div>
                 </div>
 
+                {{-- 7 --}}
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -167,14 +203,32 @@
                                 Kunjungan rawat jalan by Jenis Kelamin
                             </h4>
                         </div>
-                        <div class="card-body">
-                            <div style="width: 100%;height: 500px">
+                        <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                            <div style="height: 300px;">
                                 <canvas id="myChart7"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px; overflow-y: auto;">
+                                <table class="table mt-4 table-striped table-bordered"
+                                    style="line-height: 0px; font-size:10px">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nama Kelas</th>
+                                            <th scope="col">Jumlah</th>
+                                            <th scope="col">%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody7">
+                                        <!-- Data akan ditambahkan melalui JavaScript -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                {{-- 8 --}}
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -182,14 +236,31 @@
                                 Kunjungan rawat inap by Jenis Kelamin
                             </h4>
                         </div>
-                        <div class="card-body">
-                            <div style="width: 100%;height: 500px">
+                        <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                            <div style="height: 300px;">
                                 <canvas id="myChart8"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px; overflow-y: auto;">
+                                <table class="table mt-4 table-striped table-bordered"
+                                    style="line-height: 0px; font-size:10px">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Jenis kelamin</th>
+                                            <th scope="col">Jumlah</th>
+                                            <th scope="col">%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody8">
+                                        <!-- Data akan ditambahkan melalui JavaScript -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                {{-- 9 --}}
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -204,6 +275,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- 10 --}}
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -219,6 +291,7 @@
                     </div>
                 </div>
 
+                {{-- 11 --}}
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -226,13 +299,31 @@
                                 Kunjungan rawat jalan by Agama
                             </h4>
                         </div>
-                        <div class="card-body">
-                            <div style="width: 100%;height: 500px">
+                        <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                            <div style="height: 300px;">
                                 <canvas id="myChart11"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px; overflow-y: auto;">
+                                <table class="table mt-4 table-striped table-bordered"
+                                    style="line-height: 0px; font-size:10px">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Agama</th>
+                                            <th scope="col">Jumlah</th>
+                                            <th scope="col">%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody11">
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {{-- 12 --}}
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -240,14 +331,29 @@
                                 Kunjungan rawat inap by Agama
                             </h4>
                         </div>
-                        <div class="card-body">
-                            <div style="width: 100%;height: 500px">
+                        <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                            <div style="height: 300px;">
                                 <canvas id="myChart12"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px; overflow-y: auto;">
+                                <table class="table mt-4 table-striped table-bordered"
+                                    style="line-height: 0px; font-size:10px">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Agama</th>
+                                            <th scope="col">Jumlah</th>
+                                            <th scope="col">%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody12">
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -380,20 +486,29 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
+                    var total = 0; // total jumlah
                     var labels = [];
                     var datasetData = [];
                     var backgroundColor = [];
+
+                    // Menghitung total jumlah
+                    data.forEach(function(item) {
+                        total += item.jumlah;
+                    });
 
                     // Process the data received from the server
                     data.forEach(function(item) {
                         labels.push(item.namapost);
                         datasetData.push(item.jumlah);
+                        // Hitung persentase
+                        var percentage = ((item.jumlah / total) * 100).toFixed(
+                            2); // Menggunakan 2 digit desimal
                         // Add random background colors for each pie slice
                         backgroundColor.push(getRandomRGBA());
-
                         // Append data to table
                         $('#tableBody').append('<tr><td>' + item.namapost + '</td><td>' + item
-                            .jumlah + '</td></tr>');
+                            .jumlah +
+                            '</td><td>' + percentage + '%</td></tr>');
                     });
 
                     // Create the pie chart with the processed data
@@ -429,20 +544,29 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
+                    var total = 0; // total jumlah
                     var labels = [];
                     var datasetData = [];
                     var backgroundColor = [];
 
+                    // Menghitung total jumlah
+                    data.forEach(function(item) {
+                        total += item.jumlah;
+                    });
+
                     // Process the data received from the server
                     data.forEach(function(item) {
-                        labels.push(item.namapost);
+                        labels.push(item.kelas);
                         datasetData.push(item.jumlah);
+                        // Hitung persentase
+                        var percentage = ((item.jumlah / total) * 100).toFixed(
+                            2); // Menggunakan 2 digit desimal
                         // Add random background colors for each pie slice
                         backgroundColor.push(getRandomRGBA());
-
                         // Append data to table
                         $('#tableBody2').append('<tr><td>' + item.kelas + '</td><td>' + item
-                            .jumlah + '</td></tr>');
+                            .jumlah +
+                            '</td><td>' + percentage + '%</td></tr>');
                     });
 
                     // Create the pie chart with the processed data
@@ -471,86 +595,137 @@
         });
     </script>
 
+    {{-- 3 --}}
     <script>
-        var ctx3 = document.getElementById("myChart3").getContext('2d');
-        var myChart = new Chart(ctx3, {
-            type: 'bar',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 23, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+        $(document).ready(function() {
+            $.ajax({
+                url: '/grafik_rawat_jalan_by_dokter',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var total = 0; // total jumlah
+                    var labels = [];
+                    var datasetData = [];
+                    var backgroundColor = [];
+
+                    // Menghitung total jumlah
+                    data.forEach(function(item) {
+                        total += item.jumlah;
+                    });
+
+                    // Process the data received from the server
+                    data.forEach(function(item) {
+                        labels.push(item.nadokter);
+                        datasetData.push(item.jumlah);
+                        // Hitung persentase
+                        var percentage = ((item.jumlah / total) * 100).toFixed(
+                            2); // Menggunakan 2 digit desimal
+                        // Add random background colors for each bar
+                        backgroundColor.push(getRandomRGBA());
+                        // Append data to table
+                        $('#tableBody3').append('<tr><td>' + item.nadokter + '</td><td>' + item
+                            .jumlah +
+                            '</td><td>' + percentage + '%</td></tr>');
+                    });
+
+                    // Create the bar chart with the processed data
+                    var ctx3 = document.getElementById("myChart3").getContext('2d');
+                    var myChart3 = new Chart(ctx3, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: datasetData,
+                                backgroundColor: backgroundColor,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                            },
+                            responsive: true, // Mengizinkan grafik menyesuaikan ukuran
+                            maintainAspectRatio: false, // Tidak mempertahankan aspek rasio
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
                         }
-                    }]
+                    });
                 }
-            }
+            });
         });
     </script>
 
+    {{-- 4 --}}
     <script>
-        var ctx4 = document.getElementById("myChart4").getContext('2d');
-        var myChart = new Chart(ctx4, {
-            type: 'bar',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 23, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+        $(document).ready(function() {
+            $.ajax({
+                url: '/grafik_rawat_inap_by_dokter',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var total = 0; // total jumlah
+                    var labels = [];
+                    var datasetData = [];
+                    var backgroundColor = [];
+
+                    // Menghitung total jumlah
+                    data.forEach(function(item) {
+                        total += item.jumlah;
+                    });
+
+                    // Process the data received from the server
+                    data.forEach(function(item) {
+                        labels.push(item.nadokter);
+                        datasetData.push(item.jumlah);
+                        // Hitung persentase
+                        var percentage = ((item.jumlah / total) * 100).toFixed(
+                            2); // Menggunakan 2 digit desimal
+                        // Add random background colors for each bar
+                        backgroundColor.push(getRandomRGBA());
+                        // Append data to table
+                        $('#tableBody4').append('<tr><td>' + item.nadokter + '</td><td>' + item
+                            .jumlah +
+                            '</td><td>' + percentage + '%</td></tr>');
+                    });
+
+                    // Create the bar chart with the processed data
+                    var ctx4 = document.getElementById("myChart4").getContext('2d');
+                    var myChart4 = new Chart(ctx4, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: datasetData,
+                                backgroundColor: backgroundColor,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                            },
+                            responsive: true, // Mengizinkan grafik menyesuaikan ukuran
+                            maintainAspectRatio: false, // Tidak mempertahankan aspek rasio
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
                         }
-                    }]
+                    });
                 }
-            }
+            });
         });
     </script>
-
     <script>
         var ctx5 = document.getElementById("myChart5").getContext('2d');
         var myChart = new Chart(ctx5, {
@@ -631,86 +806,122 @@
         });
     </script>
 
+    {{-- 7 --}}
     <script>
-        var ctx7 = document.getElementById("myChart7").getContext('2d');
-        var myChart = new Chart(ctx7, {
-            type: 'pie',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 23, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+        $(document).ready(function() {
+            $.ajax({
+                url: '/grafik_rawat_jalan_by_jenis_kelamin',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var total = 0; // total jumlah
+                    var labels = [];
+                    var datasetData = [];
+                    var backgroundColor = [];
+
+                    // Menghitung total jumlah
+                    data.forEach(function(item) {
+                        total += item.jumlah;
+                    });
+
+
+                    data.forEach(function(item) {
+                        labels.push(item.jenis_kelamin == 1 ? 'Pria' : 'Wanita');
+                        datasetData.push(item.jumlah);
+                        // Hitung persentase
+                        var percentage = ((item.jumlah / total) * 100).toFixed(
+                        2); // Menggunakan 2 digit desimal
+                        // Add random background colors for each pie slice
+                        backgroundColor.push(getRandomRGBA());
+                        // Append data to table
+                        $('#tableBody7').append('<tr><td>' + (item.jenis_kelamin == 1 ?
+                                'Pria' : 'Wanita') + '</td><td>' + item.jumlah +
+                            '</td><td>' + percentage + '%</td></tr>');
+                    });
+
+                    // Create the pie chart with the processed data
+                    var ctx7 = document.getElementById("myChart7").getContext('2d');
+                    var myChart = new Chart(ctx7, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: datasetData,
+                                backgroundColor: backgroundColor,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                            }
                         }
-                    }]
+                    });
                 }
-            }
+            });
         });
     </script>
-
+    {{-- 8 --}}
     <script>
-        var ctx8 = document.getElementById("myChart8").getContext('2d');
-        var myChart = new Chart(ctx8, {
-            type: 'pie',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 23, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+        $(document).ready(function() {
+            $.ajax({
+                url: '/grafik_rawat_inap_by_jenis_kelamin',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var total = 0; // total jumlah
+                    var labels = [];
+                    var datasetData = [];
+                    var backgroundColor = [];
+
+                    // Menghitung total jumlah
+                    data.forEach(function(item) {
+                        total += item.jumlah;
+                    });
+
+                    data.forEach(function(item) {
+                        labels.push(item.jenis_kelamin == 1 ? 'Pria' : 'Wanita');
+                        datasetData.push(item.jumlah);
+                        // Hitung persentase
+                        var percentage = ((item.jumlah / total) * 100).toFixed(
+                        2); // Menggunakan 2 digit desimal
+                        // Add random background colors for each pie slice
+                        backgroundColor.push(getRandomRGBA());
+                        // Append data to table
+                        $('#tableBody8').append('<tr><td>' + (item.jenis_kelamin == 1 ?
+                                'Pria' : 'Wanita') + '</td><td>' + item.jumlah +
+                            '</td><td>' + percentage + '%</td></tr>');
+                    });
+
+                    // Create the pie chart with the processed data
+                    var ctx8 = document.getElementById("myChart8").getContext('2d');
+                    var myChart = new Chart(ctx8, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: datasetData,
+                                backgroundColor: backgroundColor,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                            }
                         }
-                    }]
+                    });
                 }
-            }
+            });
         });
     </script>
-
+    {{-- 9 --}}
     <script>
         var ctx9 = document.getElementById("myChart9").getContext('2d');
         var myChart = new Chart(ctx9, {
@@ -750,7 +961,7 @@
             }
         });
     </script>
-
+    {{-- 10 --}}
     <script>
         var ctx10 = document.getElementById("myChart10").getContext('2d');
         var myChart = new Chart(ctx10, {
@@ -790,84 +1001,120 @@
             }
         });
     </script>
-
+    {{-- 11 --}}
     <script>
-        var ctx11 = document.getElementById("myChart11").getContext('2d');
-        var myChart = new Chart(ctx11, {
-            type: 'pie',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 23, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+        $(document).ready(function() {
+            $.ajax({
+                url: '/grafik_rawat_jalan_by_agama',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var total = 0; // total jumlah
+                    var labels = [];
+                    var datasetData = [];
+                    var backgroundColor = [];
+
+                    // Menghitung total jumlah
+                    data.forEach(function(item) {
+                        total += item.jumlah;
+                    });
+
+                    // Process the data received from the server
+                    data.forEach(function(item) {
+                        labels.push(item.namapost);
+                        datasetData.push(item.jumlah);
+                        // Hitung persentase
+                        var percentage = ((item.jumlah / total) * 100).toFixed(
+                            2); // Menggunakan 2 digit desimal
+                        // Add random background colors for each pie slice
+                        backgroundColor.push(getRandomRGBA());
+                        // Append data to table
+                        $('#tableBody11').append('<tr><td>' + item.namapost + '</td><td>' + item
+                            .jumlah +
+                            '</td><td>' + percentage + '%</td></tr>');
+                    });
+
+                    // Create the pie chart with the processed data
+                    var ctx11 = document.getElementById("myChart11").getContext('2d');
+                    var myChart = new Chart(ctx11, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: datasetData,
+                                backgroundColor: backgroundColor,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                            }
                         }
-                    }]
+                    });
                 }
-            }
+            });
         });
     </script>
-
+    {{-- 12 --}}
     <script>
-        var ctx12 = document.getElementById("myChart12").getContext('2d');
-        var myChart = new Chart(ctx12, {
-            type: 'pie',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 23, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+        $(document).ready(function() {
+            $.ajax({
+                url: '/grafik_rawat_inap_by_agama',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var total = 0; // total jumlah
+                    var labels = [];
+                    var datasetData = [];
+                    var backgroundColor = [];
+
+                    // Menghitung total jumlah
+                    data.forEach(function(item) {
+                        total += item.jumlah;
+                    });
+
+                    // Process the data received from the server
+                    data.forEach(function(item) {
+                        labels.push(item.namapost);
+                        datasetData.push(item.jumlah);
+                        // Hitung persentase
+                        var percentage = ((item.jumlah / total) * 100).toFixed(
+                            2); // Menggunakan 2 digit desimal
+                        // Add random background colors for each pie slice
+                        backgroundColor.push(getRandomRGBA());
+                        // Append data to table
+                        $('#tableBody12').append('<tr><td>' + item.namapost + '</td><td>' + item
+                            .jumlah +
+                            '</td><td>' + percentage + '%</td></tr>');
+                    });
+
+                    // Create the pie chart with the processed data
+                    var ctx12 = document.getElementById("myChart12").getContext('2d');
+                    var myChart = new Chart(ctx12, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: datasetData,
+                                backgroundColor: backgroundColor,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                            }
                         }
-                    }]
+                    });
                 }
-            }
+            });
         });
     </script>
     {{-- 13 --}}

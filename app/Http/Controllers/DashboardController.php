@@ -36,11 +36,10 @@ class DashboardController extends Controller
             ->where('tbl_regist.tujuan', 1)
             ->select('tbl_regist.kodepos', 'tbl_namapos.namapost', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
             ->groupBy('tbl_regist.kodepos')
-            ->orderBy('jumlah', 'desc') // Menambahkan order by jumlah desc
+            ->orderBy('jumlah', 'desc')
             ->get();
         return response()->json($data);
     }
-
 
     public static function grafik_rawat_inap_by_kelas()
     {
@@ -51,6 +50,106 @@ class DashboardController extends Controller
             ->get();
         return response()->json($data);
     }
+
+    public static function grafik_rawat_jalan_by_dokter()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_dokter', 'tbl_regist.kodokter', '=', 'tbl_dokter.kodokter')
+            ->where('tbl_regist.tujuan', 1)
+            ->select('tbl_regist.kodokter', 'tbl_dokter.nadokter', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_regist.kodokter')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+
+    public static function grafik_rawat_inap_by_dokter()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_dokter', 'tbl_regist.kodokter', '=', 'tbl_dokter.kodokter')
+            ->where('tbl_regist.tujuan', 2)
+            ->select('tbl_regist.kodokter', 'tbl_dokter.nadokter', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_regist.kodokter')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+
+    public static function grafik_rawat_jalan_by_cara_bayar()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_dokter', 'tbl_regist.kodokter', '=', 'tbl_dokter.kodokter')
+            ->where('tbl_regist.tujuan', 1)
+            ->select('tbl_regist.kodokter', 'tbl_dokter.nadokter', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_regist.kodokter')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+
+    public static function grafik_rawat_inap_by_cara_bayar()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_dokter', 'tbl_regist.kodokter', '=', 'tbl_dokter.kodokter')
+            ->where('tbl_regist.tujuan', 2)
+            ->select('tbl_regist.kodokter', 'tbl_dokter.nadokter', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_regist.kodokter')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+    // 7
+    public static function grafik_rawat_jalan_by_jenis_kelamin()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+            ->where('tbl_regist.tujuan', 1)
+            ->select('tbl_pasien.jkel as jenis_kelamin', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_pasien.jkel')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+    // 8
+    public static function grafik_rawat_inap_by_jenis_kelamin()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+            ->where('tbl_regist.tujuan', 2)
+            ->select('tbl_pasien.jkel as jenis_kelamin', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_pasien.jkel')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+
+    // 11
+    public static function grafik_rawat_jalan_by_agama()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+            ->join('tbl_setinghms', 'tbl_pasien.agama', '=', 'tbl_setinghms.id')
+            ->where('tbl_regist.tujuan', 1)
+            ->select('tbl_setinghms.keterangan', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_pasien.agama')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+
+    // 11
+    public static function grafik_rawat_inap_by_agama()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+            ->where('tbl_regist.tujuan', 2)
+            ->select('tbl_pasien.jkel as jenis_kelamin', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_pasien.jkel')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+
 
 
 
