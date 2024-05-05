@@ -19,6 +19,8 @@ Route::controller(App\Http\Controllers\DashboardController::class)->group(functi
     });
     Route::get('/dashboard', 'index')->name('dashboard');
     Route::get('/dashboard_kunjungan_pasien', 'dashboard_kunjungan_pasien')->name('dashboard_kunjungan_pasien');
+    Route::get('/grafik_rawat_jalan_by_poliklinik', 'grafik_rawat_jalan_by_poliklinik')->name('grafik_rawat_jalan_by_poliklinik');
+    Route::get('/grafik_rawat_inap_by_kelas', 'grafik_rawat_inap_by_kelas')->name('grafik_rawat_inap_by_kelas');
     Route::get('/dashboard_penyakit', 'dashboard_penyakit')->name('dashboard_penyakit');
 });
 

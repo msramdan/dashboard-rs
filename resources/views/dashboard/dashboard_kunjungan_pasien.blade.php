@@ -330,83 +330,100 @@
             return Date.parse(val);
         }
     </script>
+
     <script>
-        var ctx = document.getElementById("myChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 23, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+        function getRandomRGBA() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            var a = Math.random().toFixed(2); // Alpha between 0 and 1
+            return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: '/grafik_rawat_jalan_by_poliklinik',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var labels = [];
+                    var datasetData = [];
+                    var backgroundColor = [];
+
+                    // Process the data received from the server
+                    data.forEach(function(item) {
+                        labels.push(item.namapost);
+                        datasetData.push(item.jumlah);
+                        // Add random background colors for each pie slice
+                        backgroundColor.push(getRandomRGBA());
+                    });
+
+                    // Create the pie chart with the processed data
+                    var ctx = document.getElementById("myChart").getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: datasetData,
+                                backgroundColor: backgroundColor,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                            }
                         }
-                    }]
+                    });
                 }
-            }
+            });
         });
     </script>
 
     <script>
-        var ctx2 = document.getElementById("myChart2").getContext('2d');
-        var myChart = new Chart(ctx2, {
-            type: 'pie',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 23, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+        $(document).ready(function() {
+            $.ajax({
+                url: '/grafik_rawat_inap_by_kelas',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var labels = [];
+                    var datasetData = [];
+                    var backgroundColor = [];
+                    data.forEach(function(item) {
+                        labels.push(item.kelas);
+                        datasetData.push(item.jumlah);
+                        backgroundColor.push(getRandomRGBA());
+                    });
+
+                    var ctx2 = document.getElementById("myChart2").getContext('2d');
+                    var myChart = new Chart(ctx2, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: datasetData,
+                                backgroundColor: backgroundColor,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                            }
                         }
-                    }]
+                    });
                 }
-            }
+            });
         });
     </script>
 
