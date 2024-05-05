@@ -33,12 +33,14 @@ class DashboardController extends Controller
     {
         $data = DB::table('tbl_regist')
             ->join('tbl_namapos', 'tbl_regist.kodepos', '=', 'tbl_namapos.kodepos')
-            ->where('tbl_regist.tujuan', 1) // Menambahkan klausa WHERE
+            ->where('tbl_regist.tujuan', 1)
             ->select('tbl_regist.kodepos', 'tbl_namapos.namapost', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
             ->groupBy('tbl_regist.kodepos')
+            ->orderBy('jumlah', 'desc') // Menambahkan order by jumlah desc
             ->get();
         return response()->json($data);
     }
+
 
     public static function grafik_rawat_inap_by_kelas()
     {

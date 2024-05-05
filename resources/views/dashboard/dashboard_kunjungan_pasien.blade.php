@@ -47,13 +47,29 @@
                                 Kunjungan rawat jalan by Poliklinik
                             </h4>
                         </div>
-                        <div class="card-body">
-                            <div style="width: 100%;height: 500px">
+                        <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                            <div style="height: 300px;">
                                 <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px; overflow-y: auto;">
+                                <table class="table mt-4 table-striped table-bordered" style="line-height: 0px; font-size:10px">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nama Pos</th>
+                                            <th scope="col">Jumlah</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody">
+                                        <!-- Data akan ditambahkan melalui JavaScript -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -61,13 +77,29 @@
                                 Kunjungan rawat inap by Kelas
                             </h4>
                         </div>
-                        <div class="card-body">
-                            <div style="width: 100%;height: 500px">
+                        <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                            <div style="height: 300px;">
                                 <canvas id="myChart2"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px; overflow-y: auto;">
+                                <table class="table mt-4 table-striped table-bordered" style="line-height: 0px; font-size:10px">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nama Kelas</th>
+                                            <th scope="col">Jumlah</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody2">
+                                        <!-- Data akan ditambahkan melalui JavaScript -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+
 
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
@@ -340,7 +372,7 @@
             return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
         }
     </script>
-
+    {{-- 1 --}}
     <script>
         $(document).ready(function() {
             $.ajax({
@@ -358,6 +390,10 @@
                         datasetData.push(item.jumlah);
                         // Add random background colors for each pie slice
                         backgroundColor.push(getRandomRGBA());
+
+                        // Append data to table
+                        $('#tableBody').append('<tr><td>' + item.namapost + '</td><td>' + item
+                            .jumlah + '</td></tr>');
                     });
 
                     // Create the pie chart with the processed data
@@ -385,7 +421,7 @@
             });
         });
     </script>
-
+    {{-- 2 --}}
     <script>
         $(document).ready(function() {
             $.ajax({
@@ -396,12 +432,20 @@
                     var labels = [];
                     var datasetData = [];
                     var backgroundColor = [];
+
+                    // Process the data received from the server
                     data.forEach(function(item) {
-                        labels.push(item.kelas);
+                        labels.push(item.namapost);
                         datasetData.push(item.jumlah);
+                        // Add random background colors for each pie slice
                         backgroundColor.push(getRandomRGBA());
+
+                        // Append data to table
+                        $('#tableBody2').append('<tr><td>' + item.kelas + '</td><td>' + item
+                            .jumlah + '</td></tr>');
                     });
 
+                    // Create the pie chart with the processed data
                     var ctx2 = document.getElementById("myChart2").getContext('2d');
                     var myChart = new Chart(ctx2, {
                         type: 'pie',
