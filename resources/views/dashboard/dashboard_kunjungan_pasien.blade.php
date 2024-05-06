@@ -301,28 +301,63 @@
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
                             <h4 class="card-title mb-0 flex-grow-1">
-                                Kunjungan rawat jalan by Kelompok Umur
+                                Kunjungan rawat jalan by kelompok umur
                             </h4>
                         </div>
-                        <div class="card-body">
-                            <div style="width: 100%;height: 500px">
+                        <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                            <div style="height: 300px;">
                                 <canvas id="myChart9"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px; overflow-y: auto;">
+                                <table class="table mt-4 table-striped table-bordered"
+                                    style="line-height: 0px; font-size:10px">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Jenis kelamin</th>
+                                            <th scope="col">Jumlah</th>
+                                            <th scope="col">%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody9">
+                                        <!-- Data akan ditambahkan melalui JavaScript -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+
 
                 {{-- 10 --}}
                 <div class="col-sm-6 col-sm-6">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
                             <h4 class="card-title mb-0 flex-grow-1">
-                                Kunjungan rawat inap by Kelompok Umur
+                                Kunjungan rawat inap by kelompok umur
                             </h4>
                         </div>
-                        <div class="card-body">
-                            <div style="width: 100%;height: 500px">
+                        <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                            <div style="height: 300px;">
                                 <canvas id="myChart10"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 300px; overflow-y: auto;">
+                                <table class="table mt-4 table-striped table-bordered"
+                                    style="line-height: 0px; font-size:10px">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Jenis kelamin</th>
+                                            <th scope="col">Jumlah</th>
+                                            <th scope="col">%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody10">
+                                        <!-- Data akan ditambahkan melalui JavaScript -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -922,7 +957,7 @@
                         datasetData.push(item.jumlah);
                         // Hitung persentase
                         var percentage = ((item.jumlah / total) * 100).toFixed(
-                        2); // Menggunakan 2 digit desimal
+                            2); // Menggunakan 2 digit desimal
                         // Add random background colors for each bar
                         backgroundColor.push(getRandomRGBA());
                         // Append data to table
@@ -1081,84 +1116,120 @@
     </script>
     {{-- 9 --}}
     <script>
-        var ctx9 = document.getElementById("myChart9").getContext('2d');
-        var myChart = new Chart(ctx9, {
-            type: 'pie',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 23, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+        $(document).ready(function() {
+            $.ajax({
+                url: '/grafik_rawat_jalan_by_kelompok_umur',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var total = 0; // total jumlah
+                    var labels = [];
+                    var datasetData = [];
+                    var backgroundColor = [];
+
+                    // Menghitung total jumlah
+                    data.forEach(function(item) {
+                        total += item.jumlah;
+                    });
+
+                    data.forEach(function(item) {
+                        labels.push(item.jenis_kelamin == 1 ? 'Pria' : 'Wanita');
+                        datasetData.push(item.jumlah);
+                        // Hitung persentase
+                        var percentage = ((item.jumlah / total) * 100).toFixed(
+                            2); // Menggunakan 2 digit desimal
+                        // Add random background colors for each pie slice
+                        backgroundColor.push(getRandomRGBA());
+                        // Append data to table
+                        $('#tableBody9').append('<tr><td>' + (item.jenis_kelamin == 1 ?
+                                'Pria' : 'Wanita') + '</td><td>' + item.jumlah +
+                            '</td><td>' + percentage + '%</td></tr>');
+                    });
+
+                    // Create the pie chart with the processed data
+                    var ctx9 = document.getElementById("myChart9").getContext('2d');
+                    var myChart9 = new Chart(ctx9, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: datasetData,
+                                backgroundColor: backgroundColor,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                            }
                         }
-                    }]
+                    });
                 }
-            }
+            });
         });
     </script>
+
     {{-- 10 --}}
     <script>
-        var ctx10 = document.getElementById("myChart10").getContext('2d');
-        var myChart = new Chart(ctx10, {
-            type: 'pie',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 23, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
+        $(document).ready(function() {
+            $.ajax({
+                url: '/grafik_rawat_inap_by_kelompok_umur',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var total = 0; // total jumlah
+                    var labels = [];
+                    var datasetData = [];
+                    var backgroundColor = [];
+
+                    // Menghitung total jumlah
+                    data.forEach(function(item) {
+                        total += item.jumlah;
+                    });
+
+                    data.forEach(function(item) {
+                        labels.push(item.jenis_kelamin == 1 ? 'Pria' : 'Wanita');
+                        datasetData.push(item.jumlah);
+                        // Hitung persentase
+                        var percentage = ((item.jumlah / total) * 100).toFixed(
+                            2); // Menggunakan 2 digit desimal
+                        // Add random background colors for each pie slice
+                        backgroundColor.push(getRandomRGBA());
+                        // Append data to table
+                        $('#tableBody10').append('<tr><td>' + (item.jenis_kelamin == 1 ?
+                                'Pria' : 'Wanita') + '</td><td>' + item.jumlah +
+                            '</td><td>' + percentage + '%</td></tr>');
+                    });
+
+                    // Create the pie chart with the processed data
+                    var ctx10 = document.getElementById("myChart10").getContext('2d');
+                    var myChar10t = new Chart(ctx10, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: datasetData,
+                                backgroundColor: backgroundColor,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                            }
                         }
-                    }]
+                    });
                 }
-            }
+            });
         });
     </script>
+
     {{-- 11 --}}
     <script>
         $(document).ready(function() {

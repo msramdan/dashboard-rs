@@ -122,6 +122,30 @@ class DashboardController extends Controller
             ->get();
         return response()->json($data);
     }
+    // 9
+    public static function grafik_rawat_jalan_by_kelompok_umur()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+            ->where('tbl_regist.tujuan', 1)
+            ->select('tbl_pasien.jkel as jenis_kelamin', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_pasien.jkel')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+    // 10
+    public static function grafik_rawat_inap_by_kelompok_umur()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+            ->where('tbl_regist.tujuan', 2)
+            ->select('tbl_pasien.jkel as jenis_kelamin', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_pasien.jkel')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
 
     // 11
     public static function grafik_rawat_jalan_by_agama()
