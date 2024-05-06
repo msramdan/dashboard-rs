@@ -23,6 +23,10 @@ Route::controller(App\Http\Controllers\DashboardController::class)->group(functi
     Route::get('/grafik_rawat_inap_by_kelas', 'grafik_rawat_inap_by_kelas')->name('grafik_rawat_inap_by_kelas');
     Route::get('/grafik_rawat_jalan_by_dokter', 'grafik_rawat_jalan_by_dokter')->name('grafik_rawat_jalan_by_dokter');
     Route::get('/grafik_rawat_inap_by_dokter', 'grafik_rawat_inap_by_dokter')->name('grafik_rawat_inap_by_dokter');
+    // 5
+    Route::get('/grafik_rawat_jalan_by_cara_bayar', 'grafik_rawat_jalan_by_cara_bayar')->name('grafik_rawat_jalan_by_cara_bayar');
+    // 6
+    Route::get('/grafik_rawat_inap_by_cara_bayar', 'grafik_rawat_inap_by_cara_bayar')->name('grafik_rawat_inap_by_cara_bayar');
     // 7
     Route::get('/grafik_rawat_jalan_by_jenis_kelamin', 'grafik_rawat_jalan_by_jenis_kelamin')->name('grafik_rawat_jalan_by_jenis_kelamin');
     // 8

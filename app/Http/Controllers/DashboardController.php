@@ -78,10 +78,10 @@ class DashboardController extends Controller
     public static function grafik_rawat_jalan_by_cara_bayar()
     {
         $data = DB::table('tbl_regist')
-            ->join('tbl_dokter', 'tbl_regist.kodokter', '=', 'tbl_dokter.kodokter')
+            ->leftJoin('tbl_penjamin', 'tbl_regist.cust_id', '=', 'tbl_penjamin.cust_id')
             ->where('tbl_regist.tujuan', 1)
-            ->select('tbl_regist.kodokter', 'tbl_dokter.nadokter', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
-            ->groupBy('tbl_regist.kodokter')
+            ->select('tbl_regist.jenispas', 'tbl_penjamin.cust_nama', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_regist.cust_id')
             ->orderBy('jumlah', 'desc')
             ->get();
         return response()->json($data);
@@ -90,10 +90,10 @@ class DashboardController extends Controller
     public static function grafik_rawat_inap_by_cara_bayar()
     {
         $data = DB::table('tbl_regist')
-            ->join('tbl_dokter', 'tbl_regist.kodokter', '=', 'tbl_dokter.kodokter')
+            ->leftJoin('tbl_penjamin', 'tbl_regist.cust_id', '=', 'tbl_penjamin.cust_id')
             ->where('tbl_regist.tujuan', 2)
-            ->select('tbl_regist.kodokter', 'tbl_dokter.nadokter', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
-            ->groupBy('tbl_regist.kodokter')
+            ->select('tbl_regist.jenispas', 'tbl_penjamin.cust_nama', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_regist.cust_id')
             ->orderBy('jumlah', 'desc')
             ->get();
         return response()->json($data);
