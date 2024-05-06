@@ -128,23 +128,85 @@ class DashboardController extends Controller
     {
         $data = DB::table('tbl_regist')
             ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
-            ->join('tbl_setinghms', 'tbl_pasien.agama', '=', 'tbl_setinghms.id')
+            // ->join('tbl_setinghms', 'tbl_pasien.agama', '=', 'tbl_setinghms.id')
             ->where('tbl_regist.tujuan', 1)
-            ->select('tbl_setinghms.keterangan', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            // ->select('tbl_setinghms.keterangan', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->select('tbl_pasien.agama', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
             ->groupBy('tbl_pasien.agama')
             ->orderBy('jumlah', 'desc')
             ->get();
         return response()->json($data);
     }
 
-    // 11
+    // 12
     public static function grafik_rawat_inap_by_agama()
     {
         $data = DB::table('tbl_regist')
             ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+            // ->join('tbl_setinghms', 'tbl_pasien.agama', '=', 'tbl_setinghms.id')
             ->where('tbl_regist.tujuan', 2)
-            ->select('tbl_pasien.jkel as jenis_kelamin', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
-            ->groupBy('tbl_pasien.jkel')
+            // ->select('tbl_setinghms.keterangan', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->select('tbl_pasien.agama', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_pasien.agama')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+
+
+    // 13
+    public static function grafik_rawat_jalan_by_pekerjaan()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+            // ->join('tbl_setinghms', 'tbl_pasien.pekerjaan', '=', 'tbl_setinghms.id')
+            ->where('tbl_regist.tujuan', 1)
+            // ->select('tbl_setinghms.keterangan', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->select('tbl_pasien.pekerjaan', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_pasien.pekerjaan')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+
+    // 14
+    public static function grafik_rawat_inap_by_pekerjaan()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+            // ->join('tbl_setinghms', 'tbl_pasien.pekerjaan', '=', 'tbl_setinghms.id')
+            ->where('tbl_regist.tujuan', 2)
+            // ->select('tbl_setinghms.keterangan', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->select('tbl_pasien.pekerjaan', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_pasien.pekerjaan')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+
+    // 15
+    public static function grafik_rawat_jalan_by_desa()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+            // ->join('tbl_kelurahan', 'tbl_pasien.kelurahan', '=', 'tbl_kelurahan.kodedesa')
+            ->where('tbl_regist.tujuan', 1)
+            ->select('tbl_pasien.kelurahan', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_pasien.kelurahan')
+            ->orderBy('jumlah', 'desc')
+            ->get();
+        return response()->json($data);
+    }
+
+    // 16
+    public static function grafik_rawat_inap_by_desa()
+    {
+        $data = DB::table('tbl_regist')
+            ->join('tbl_pasien', 'tbl_regist.rekmed', '=', 'tbl_pasien.rekmed')
+            // ->join('tbl_kelurahan', 'tbl_pasien.kelurahan', '=', 'tbl_kelurahan.kodedesa')
+            ->where('tbl_regist.tujuan', 2)
+            ->select('tbl_pasien.kelurahan', DB::raw('COUNT(tbl_regist.noreg) as jumlah'))
+            ->groupBy('tbl_pasien.kelurahan')
             ->orderBy('jumlah', 'desc')
             ->get();
         return response()->json($data);

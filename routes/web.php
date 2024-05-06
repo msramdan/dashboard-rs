@@ -31,6 +31,14 @@ Route::controller(App\Http\Controllers\DashboardController::class)->group(functi
     Route::get('/grafik_rawat_jalan_by_agama', 'grafik_rawat_jalan_by_agama')->name('grafik_rawat_jalan_by_agama');
     // 12
     Route::get('/grafik_rawat_inap_by_agama', 'grafik_rawat_inap_by_agama')->name('grafik_rawat_inap_by_agama');
+    // 13
+    Route::get('/grafik_rawat_jalan_by_pekerjaan', 'grafik_rawat_jalan_by_pekerjaan')->name('grafik_rawat_jalan_by_pekerjaan');
+    // 14
+    Route::get('/grafik_rawat_inap_by_pekerjaan', 'grafik_rawat_inap_by_pekerjaan')->name('grafik_rawat_inap_by_pekerjaan');
+    // 15
+    Route::get('/grafik_rawat_jalan_by_desa', 'grafik_rawat_jalan_by_desa')->name('grafik_rawat_jalan_by_desa');
+    // 16
+    Route::get('/grafik_rawat_inap_by_desa', 'grafik_rawat_inap_by_desa')->name('grafik_rawat_inap_by_desa');
     Route::get('/dashboard_penyakit', 'dashboard_penyakit')->name('dashboard_penyakit');
 });
 
